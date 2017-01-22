@@ -43,6 +43,24 @@ getBossRatings(){
         </div>
 
         <div className="main">
+          <div>
+            <div className="donation-meter">
+              <strong></strong>
+              <strong className="goal">Sucks</strong>
+              <span className="glass">
+              <strong className="total" style={{bottom: "30%"}}>Mild</strong>
+              <strong className="total" style={{bottom: "10%"}}>Chill</strong>
+              <strong className="total" style={{bottom: "70%"}}>Awful</strong>
+              <span className="amount" style={{height: "30%"}}></span>
+              </span>
+              <div className="bulb">
+                <span className="red-circle"></span>
+                  <span className="filler">
+                  <span></span>
+                </span>
+              </div>
+            </div>
+          </div>
           <p className="subheading">
             Hello there.
           </p>
