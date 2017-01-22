@@ -29,5 +29,9 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1"
   }
 }

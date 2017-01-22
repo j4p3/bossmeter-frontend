@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Bosses from './bosses';
+import Penguin from './penguin';
 
 class App extends Component {
   constructor(){
     super();
 
     this.state={
+      name: '',
+      score: .9,
       currentEmotions: {
         anger: '',
         joy: '',
@@ -19,39 +22,37 @@ class App extends Component {
   }
 }
 
-getBossRatings(){
-  console.log('boss rating');
-  fetch(`http://bossmeter.herokuapp.com/api/space/person`)
-  .then(r => r.json())
-  .then((data) =>
-    this.setState({
-      currentRatings: {
+  componentDidMount() {
+    fetch(`http://bossmeter.herokuapp.com/api/space/person`)
+    .then(r => {
+      let data = r.json()
+      console.log(data)
+      this.setState({
         score: data.score,
-        name: data.name,
-        space: data.space
-      }
+        name: data.user,
+        scorePercent: data.score*100 + "%"
+      })
     })
-  )
-}
+  }
 
   render() {
     return (
-      <div className="App">
+      <div>
+      <h1 style={{align: 'center', em: 2,}}>BOSSMETER: {this.state.name}</h1>
+      <div className="App row" style={{display: 'flex', flexDirection: 'row', marginTop: "40px"}}>
 
-        <div className="heading">
-          <h2>BOSSMETER</h2>
+        <div style={{flex: 3}}>
+          <Penguin score={this.state.score} />
         </div>
-
-        <div className="main">
+        <div style={{flex: 1}}>
           <div>
             <div className="donation-meter">
               <strong></strong>
-              <strong className="goal">Sucks</strong>
               <span className="glass">
-              <strong className="total" style={{bottom: "30%"}}>Mild</strong>
-              <strong className="total" style={{bottom: "10%"}}>Chill</strong>
-              <strong className="total" style={{bottom: "70%"}}>Awful</strong>
-              <span className="amount" style={{height: "30%"}}></span>
+              <strong className="total" style={{bottom: "10%"}}>Pointy-Haired Boss</strong>
+              <strong className="total" style={{bottom: "45%"}}>You're Alright</strong>
+              <strong className="total" style={{bottom: "70%"}}>The Bomb</strong>
+              <span className="amount" style={{height: this.state.score*100 + "%"}}></span>
               </span>
               <div className="bulb">
                 <span className="red-circle"></span>
@@ -61,25 +62,12 @@ getBossRatings(){
               </div>
             </div>
           </div>
-          <p className="subheading">
-            Hello there.
-          </p>
-            <p className="desc">
-              Here's how your employees are feeling about you today:
-            </p>
-              <article className="data">
-                BOSS NAME: {this.state.currentRatings.name}<br></br>
-                BOSS SCORE: {this.state.currentRatings.score}<br></br>
-                BOSS SPACE: {this.state.currentRatings.space}<br></br>
-              </article>
-              <Bosses
-                getBossRatings={this.getBossRatings.bind(this)}
-              />
+        </div>
+        <div style={{flex: 2}}>
+          The world's shortest and most honest performance review.
         </div>
 
-        <footer>
-          IBM Hackathon 2017
-        </footer>
+      </div>
       </div>
     );
   }
