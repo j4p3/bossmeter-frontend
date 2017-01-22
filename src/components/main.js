@@ -6,9 +6,13 @@ class App extends Component {
   constructor(){
     super();
 
+    let user = window.location.hash.split('/')
+    user = user[user.length-1].toLowerCase()
+
     this.state={
-      name: '',
-      score: .9,
+      name: user,
+      donaldmode: user == 'donald',
+      score: .7,
       currentEmotions: {
         anger: '',
         joy: '',
@@ -24,12 +28,13 @@ class App extends Component {
 
   componentDidMount() {
     fetch(`http://bossmeter.herokuapp.com/api/space/person`)
-    .then(r => {
-      let data = r.json()
+    .then(r => r.json())
+    .then(data => {
       console.log(data)
+      let name = this.state.name || data.user
       this.setState({
+        name: name,
         score: data.score,
-        name: data.user,
         scorePercent: data.score*100 + "%"
       })
     })
@@ -42,16 +47,16 @@ class App extends Component {
       <div className="App row" style={{display: 'flex', flexDirection: 'row', marginTop: "40px"}}>
 
         <div style={{flex: 3}}>
-          <Penguin score={this.state.score} />
+          <Penguin score={this.state.score} donald={this.state.donaldmode} />
         </div>
         <div style={{flex: 1}}>
           <div>
             <div className="donation-meter">
               <strong></strong>
               <span className="glass">
-              <strong className="total" style={{bottom: "10%"}}>Pointy-Haired Boss</strong>
-              <strong className="total" style={{bottom: "45%"}}>You're Alright</strong>
-              <strong className="total" style={{bottom: "70%"}}>The Bomb</strong>
+              <strong className="total" style={{bottom: "10%"}}>Unfortunate.</strong>
+              <strong className="total" style={{bottom: "45%"}}>You're Alright.</strong>
+              <strong className="total" style={{bottom: "70%"}}>The Bomb!</strong>
               <span className="amount" style={{height: this.state.score*100 + "%"}}></span>
               </span>
               <div className="bulb">
@@ -64,7 +69,12 @@ class App extends Component {
           </div>
         </div>
         <div style={{flex: 2}}>
-          The world's shortest and most honest performance review.
+          <p style={{fontSize: 24}}>
+            The world's shortest and most honest performance review.
+          </p>
+          <p style={{fontSize: 24}}>
+            Forget surveys. How do your minions feel about you in their day-to-day work?
+          </p>
         </div>
 
       </div>

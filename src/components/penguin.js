@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Penguin extends Component{
   render(){
     let penguinPath = 'decentpenguin.png'
-    if (this.props.score < 0.2) {
+    if (this.props.donald) {
+      penguinPath = 'penguin_donald.png'
+    } else if (this.props.score < 0.2) {
       penguinPath = 'penguin_0_20.png'
     } else if (this.props.score < 0.4) {
       penguinPath = 'penguin_20_40.png'
@@ -12,7 +14,7 @@ class Penguin extends Component{
     } else if (this.props.score < 0.8) {
       penguinPath = 'decentpenguin.png'
     } else {
-      penguinPath = 'decentpenguin.png'
+      penguinPath = 'penguin_80_100.png'
     }
     return(
       <div>
