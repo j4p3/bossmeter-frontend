@@ -6,13 +6,16 @@ class App extends Component {
   constructor(){
     super();
 
-    let user = window.location.hash.split('/')
-    user = user[user.length-1].toLowerCase()
+    let hash = window.location.hash.split('/')
+    let user = hash[hash.length-1].toLowerCase()
+    let space = hash[hash.length-2]
 
     this.state={
       name: user,
+      user: user,
       donaldmode: user == 'donald',
-      score: .7,
+      score: .5,
+      space: space,
       currentEmotions: {
         anger: '',
         joy: '',
@@ -27,7 +30,7 @@ class App extends Component {
 }
 
   componentDidMount() {
-    fetch(`http://bossmeter.herokuapp.com/api/space/person`)
+    fetch(`http://bossmeter.herokuapp.com/api/${this.state.space}/${this.state.user}`)
     .then(r => r.json())
     .then(data => {
       console.log(data)
@@ -54,9 +57,9 @@ class App extends Component {
             <div className="donation-meter">
               <strong></strong>
               <span className="glass">
-              <strong className="total" style={{bottom: "10%"}}>Unfortunate.</strong>
+              <strong className="total" style={{bottom: "0%"}}>Unfortunate.</strong>
               <strong className="total" style={{bottom: "45%"}}>You're Alright.</strong>
-              <strong className="total" style={{bottom: "70%"}}>The Bomb!</strong>
+              <strong className="total" style={{bottom: "90%"}}>The Bomb!</strong>
               <span className="amount" style={{height: this.state.score*100 + "%"}}></span>
               </span>
               <div className="bulb">
