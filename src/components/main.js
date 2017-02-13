@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Bosses from './bosses';
 import Penguin from './penguin';
+import Chart_tone from './chart_tone';
+import Chart_emotion from './chart_emotion';
+import Chart_sentiment from './chart_sentiment';
+import rd3 from 'react-d3';
 
 class App extends Component {
   constructor(){
@@ -16,10 +20,25 @@ class App extends Component {
       donaldmode: user == 'donald',
       score: .5,
       space: space,
-      currentEmotions: {
-        anger: '',
-        joy: '',
-        disgust: ''
+      data: {
+        tones: [
+          {tone: 'Agreeableness', value: ''},
+          {tone: 'Conscientiousness', value: ''},
+          {tone: 'Extraversion', value: ''},
+          {tone: 'Emotional_range', value: ''},
+          {tone: 'Openness', value: ''}
+        ],
+        emotions: [
+          {emotion: 'Joy', value: ''},
+          {emotion: 'Fear', value: ''},
+          {emotion: 'Sadness', value: ''},
+          {emotion: 'Disgust', value: ''}
+        ],
+        sentiments: [
+          {sentiment: 'Analytical', value: ''},
+          {sentiment: 'Confident', value: ''},
+          {sentiment: 'Tentative', value: ''},
+        ]
       },
       currentRatings: {
         score: '',
@@ -51,6 +70,11 @@ class App extends Component {
 
         <div style={{flex: 3}}>
           <Penguin score={this.state.score} donald={this.state.donaldmode} />
+        </div>
+        <div style={{flex: 3}}>
+          <Chart_tone data={this.state.data} />
+          <Chart_emotion data={this.state.data} />
+          <Chart_sentiment data={this.state.data} />
         </div>
         <div style={{flex: 1}}>
           <div>
