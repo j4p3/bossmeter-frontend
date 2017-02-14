@@ -1,0 +1,19 @@
+path {
+  stroke: #747474;
+  stroke-width: 1.2;
+  fill: none;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #484848;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+.legend {
+  font-size: 10px;
+  font-weight: bold;
+  text-anchor: top;
+}
