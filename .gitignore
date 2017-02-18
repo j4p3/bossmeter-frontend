@@ -31,3 +31,9 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Compiled js
+public/index.js
+public/index.js.map
+public/style.css
+public/style.css.map
