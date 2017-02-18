@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bossmeter</title>
+  <title>Moodmeter</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
@@ -37,15 +37,18 @@
 <body id="page-top" class="index">
 
   <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-    <div class="container" style="padding-top: 20px !important;>
+  <nav id="mainNav" class="navbar navbar-toggleable-md navbar-default navbar-fixed-top navbar-custom">
+    <div class="container" style="padding-top: 20px !important;">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
-        <a class="navbar-brand" href="#page-top">bossmeter</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#page-top">moodmeter</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden">
             <a href="#page-top"></a>
@@ -53,9 +56,6 @@
           </li>
           <li class="page-scroll">
             <a href="#about">About</a>
-          </li>
-          <li class="page-scroll">
-            <a href="#contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -84,13 +84,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
+                <div class="col-lg-6 portfolio-item">
                   <div id="chartTone"></div>
                 </div>
-                <div class="col-sm-4 portfolio-item">
+                <div class="col-lg-6 portfolio-item">
                     <div id="chartEmotion"></div>
                 </div>
-                <div class="col-sm-4 portfolio-item">
+                <div class="col-lg-12 portfolio-item">
                     <div id="chartSentiment"></div>
                 </div>
             </div>
@@ -102,17 +102,13 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2>About</h2>
-          <hr class="star-light">
+          <hr class="star-light" />
         </div>
       </div>
       <div class="row">
-
-          <p>Bossmeter analyzes and aggregates conversations people have and creates a thermometer that shows how people really feel about someone or a topic in real time.</p>
+        <div class="col-lg-12">
+          <p>Moodmeter aggregates and analyzes your conversations, and your colleagues' conversations, to find helpful trends in your professional life.</p>
         </div>
-        <div class="col-lg-4">
-          <p></p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -122,28 +118,9 @@
     <div class="footer-above">
       <div class="container">
         <div class="row">
-          <div class="footer-col col-md-4">
-            <h3>Location</h3>
-            <p>902 Broadway
-              <br>New York, NY 10010</p>
-          </div>
-          <div class="footer-col col-md-4">
-            <h3>Around the Web</h3>
-            <ul class="list-inline">
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-4">
-            <h3>WTF is Bossmeter?</h3>
-            <p>Bossmeter is powered by IBM Watson and a product of this Hackathon</p>
+          <div class="footer-col col-md-12">
+            <h3>WTF is Moodmeter?</h3>
+            <p>Moodmeter was produced for the IBM Connect 2017 hackathon, and is powered by IBM Watson Workspace.</p>
           </div>
         </div>
       </div>

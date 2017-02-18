@@ -17,6 +17,7 @@ class App extends Component {
     this.state={
       name: user,
       user: user,
+      loaded: false,
       donaldmode: user == 'donald',
       score: .5,
       space: space,
@@ -56,6 +57,7 @@ class App extends Component {
       let name = this.state.name || data.user
       this.setState({
         name: name,
+        loaded: true,
         score: data.score,
         scorePercent: data.score*100 + "%"
       })
@@ -65,13 +67,13 @@ class App extends Component {
   render() {
     return (
       <div>
-      <h1 style={{align: 'center', em: 2,}}>BOSSMETER: {this.state.name}</h1>
+      <h1 style={{align: 'center', em: 2,}}>MOODMETER {this.state.name ? ':' + this.state.name : ''}</h1>
       <div className="App row" style={{display: 'flex', flexDirection: 'row', marginTop: "40px"}}>
 
-        <div style={{flex: 3}}>
+        <div style={{flex: 2}}>
           <Penguin score={this.state.score} donald={this.state.donaldmode} />
         </div>
-        <div style={{flex: 3}}>
+        <div>
           <Chart_tone data={this.state.data} />
           <Chart_emotion data={this.state.data} />
           <Chart_sentiment data={this.state.data} />
@@ -100,7 +102,7 @@ class App extends Component {
             The world's shortest and most honest performance review.
           </p>
           <p style={{fontSize: 24}}>
-            Forget surveys. How do your minions feel about you in their day-to-day work?
+            Forget surveys. How do you come across in your day-to-day work?
           </p>
         </div>
 

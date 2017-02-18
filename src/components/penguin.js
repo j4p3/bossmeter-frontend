@@ -17,7 +17,7 @@ class Penguin extends Component{
       penguinPath = 'penguin_80_100.png'
     }
     return(
-      <div>
+      <div style={{'textAlign': 'right'}}>
         <img src={penguinPath} style={{maxWidth: "200px"}}/>
       </div>
     )
