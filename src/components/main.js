@@ -67,7 +67,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <h1 style={{align: 'center', em: 2,}}>MOODMETER {this.state.name ? ':' + this.state.name : ''}</h1>
+      <h2 style={{align: 'center', em: 2,}}>{this.state.name ? 'MOODMETER FOR ' + this.state.name : ''}</h2>
       <div className="App row" style={{display: 'flex', flexDirection: 'row', marginTop: "40px"}}>
 
         <div style={{flex: 2}}>
