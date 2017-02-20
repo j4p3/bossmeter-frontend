@@ -1,15 +1,12 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Moodmeter</title>
+  <title>Bossmeter</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +21,7 @@
   <link href="freelancer.min.css" rel="stylesheet">
 
   <link href="style.css" rel="stylesheet" type="text/css" >
+  <link href="styleGraph.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,43 +31,48 @@
   <![endif]-->
 
 </head>
-
 <body id="page-top" class="index">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="examples.js"></script>
 
   <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-toggleable-md navbar-default navbar-fixed-top navbar-custom">
-    <div class="container" style="padding-top: 20px !important;">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container" style="padding-top: 20px !important;>
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
-        <a class="navbar-brand" href="#page-top">moodmeter</a>
+        <a class="navbar-brand" href="#page-top">bossmeter</a>
         <a class="navbar-brand" style="color: #eeeeee" href="./examples.html">+</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-<!--       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden">
             <a href="#page-top"></a>
           </li>
+          </li>
           <li class="page-scroll">
             <a href="#about">About</a>
           </li>
+          <li class="page-scroll">
+            <a href="#contact">Contact</a>
+          </li>
         </ul>
-      </div> -->
+      </div>
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
   </nav>
 
   <!-- Header -->
-  <header>
+<!--   <header>
     <div class="footer-above">
       <div class="container">
-        <!-- React App Container -->
+        React App Container
         <div id="react-app" />
       </div>
     </div>
-  </header>
+  </header> -->
 
 <!-- Portfolio Grid Section -->
     <section id="portfolio">
@@ -81,15 +84,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 portfolio-item">
-                  <div id="chartTone"></div>
+                <div class="col-sm-4 portfolio-item">
+                  <div id="graph"></div>
                 </div>
-                <div class="col-lg-6 portfolio-item">
+                <!-- <div class="col-sm-4 portfolio-item">
                     <div id="chartEmotion"></div>
                 </div>
-                <div class="col-lg-12 portfolio-item">
+                <div class="col-sm-4 portfolio-item">
                     <div id="chartSentiment"></div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -99,13 +102,17 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2>About</h2>
-          <hr class="star-light" />
+          <hr class="star-light">
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-12">
-          <p>Moodmeter aggregates and analyzes your conversations, and your colleagues' conversations, to find helpful trends in your professional life.</p>
+
+          <p>Bossmeter analyzes and aggregates conversations people have and creates a thermometer that shows how people really feel about someone or a topic in real time.</p>
         </div>
+        <div class="col-lg-4">
+          <p></p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -115,9 +122,28 @@
     <div class="footer-above">
       <div class="container">
         <div class="row">
-          <div class="footer-col col-md-12">
-            <h3>WTF is Moodmeter?</h3>
-            <p>Moodmeter was produced for the IBM Connect 2017 hackathon, and is powered by IBM Watson Workspace.</p>
+          <div class="footer-col col-md-4">
+            <h3>Location</h3>
+            <p>902 Broadway
+              <br>New York, NY 10010</p>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>Around the Web</h3>
+            <ul class="list-inline">
+              <li>
+                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>WTF is Bossmeter?</h3>
+            <p>Bossmeter is powered by IBM Watson and a product of this Hackathon</p>
           </div>
         </div>
       </div>
@@ -142,7 +168,6 @@
 
   <script src="index.js"></script>
 
-
   <!-- jQuery -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
@@ -153,5 +178,4 @@
   <script src="freelancer.min.js"></script>
 
 </body>
-
 </html>
