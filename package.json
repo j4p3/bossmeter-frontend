@@ -1,6 +1,6 @@
 {
-  "name": "bossmeter-frontend",
-  "version": "0.0.1",
+  "name": "moodmeter-frontend",
+  "version": "0.1.1",
   "author": "JP Bonner <bonnerjp@gmail.com>",
   "public": false,
   "license": "MIT",
