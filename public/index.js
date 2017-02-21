@@ -88,27 +88,52 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HelloWorld = function (_Component) {
-	  _inherits(HelloWorld, _Component);
+	// import queryParam from './util'
 	
-	  function HelloWorld() {
-	    _classCallCheck(this, HelloWorld);
+	var Moodmeter = function (_Component) {
+	  _inherits(Moodmeter, _Component);
 	
-	    return _possibleConstructorReturn(this, (HelloWorld.__proto__ || Object.getPrototypeOf(HelloWorld)).apply(this, arguments));
+	  function Moodmeter() {
+	    _classCallCheck(this, Moodmeter);
+	
+	    return _possibleConstructorReturn(this, (Moodmeter.__proto__ || Object.getPrototypeOf(Moodmeter)).apply(this, arguments));
 	  }
 	
-	  _createClass(HelloWorld, [{
+	  _createClass(Moodmeter, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(_main2.default, null);
+	      if (queryParam('uid')) {
+	        return _react2.default.createElement(_main2.default, null);
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'text-center' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://workspace.ibm.com/oauth/authorize?response_type=code&client_id=cbebde54-e8ee-4eb4-9ae8-ccc7294a65ee&redirect_uri=https://moodmeter.ngrok.io/api/callback&state=123456789', className: 'btn btn-lg btn-outline' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'fa-stack fa-lg', style: { marginRight: "1rem" } },
+	              _react2.default.createElement('i', { className: 'fa fa-square-o fa-stack-2x' }),
+	              _react2.default.createElement('i', { className: 'fa fa-bolt fa-stack-1x', style: { top: "-2px" } })
+	            ),
+	            'Connect to my Watson Workspace'
+	          )
+	        );
+	      }
 	    }
 	  }]);
 	
-	  return HelloWorld;
+	  return Moodmeter;
 	}(_react.Component);
 	
+	var queryParam = function queryParam(param) {
+	  var p = new URLSearchParams(window.location.search);
+	  return p.get(param);
+	};
+	
 	var content = document.getElementById('react-app');
-	_reactDom2.default.render(_react2.default.createElement(HelloWorld, null), content);
+	_reactDom2.default.render(_react2.default.createElement(Moodmeter, null), content);
 
 /***/ },
 /* 2 */
@@ -29557,6 +29582,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var hash = window.location.hash.split('/');
 	    var user = hash[hash.length - 1].toLowerCase();
 	    var space = hash[hash.length - 2];
+	
+	    // @todo: on componentDidMount, update dataset & loaded: true with data from API. Should request analysis for given UID, render to page.
+	    // Will have major problems with d3, will probably need to redo graphs.
 	
 	    _this.state = {
 	      name: user,

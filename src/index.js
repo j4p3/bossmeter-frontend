@@ -17,7 +17,14 @@ class Moodmeter extends Component{
               <i className="fa fa-square-o fa-stack-2x"></i>
               <i className="fa fa-bolt fa-stack-1x" style={{top: "-2px"}}></i>
             </span>
-            Connect to my Watson Workspace
+            Connect to my Watson Workspace account
+          </a>
+          <a href="/?uid=b3c0adff-ab60-4d6e-bfa1-29c028649a2e" className="btn btn-lg btn-outline">
+            <span className="fa-stack fa-lg" style={{marginRight: "1rem"}}>
+              <i className="fa fa-square-o fa-stack-2x"></i>
+              <i className="fa fa-star fa-stack-1x" style={{top: "-2px"}}></i>
+            </span>
+            View sample page
           </a>
         </div>
       )

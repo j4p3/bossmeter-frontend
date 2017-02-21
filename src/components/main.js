@@ -14,6 +14,9 @@ class App extends Component {
     let user = hash[hash.length-1].toLowerCase()
     let space = hash[hash.length-2]
 
+    // @todo: on componentDidMount, update dataset & loaded: true with data from API. Should request analysis for given UID, render to page.
+    // Will have major problems with d3, will probably need to redo graphs.
+
     this.state={
       name: user,
       user: user,
@@ -101,7 +104,8 @@ class App extends Component {
           <p style={{fontSize: 24}}>
             The world's shortest and most honest performance review.
           </p>
-          <p style={{fontSize: 24}}>
+          <p style={{fontSize: 18}}>Moodmeter aggregates and analyzes your conversations, and your colleagues' conversations, to find helpful trends in your professional life.</p>
+          <p style={{fontSize: 18}}>
             Forget surveys. How do you come across in your day-to-day work?
           </p>
         </div>
