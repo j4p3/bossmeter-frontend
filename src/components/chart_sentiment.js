@@ -4,7 +4,7 @@ import rd3 from 'react-d3';
 class Chart_sentiment extends Component{
 
 componentDidMount(){
-    var width = 640,
+    var width = 400,
         height = 400,
         radius = Math.min(width, height) / 2;
 
